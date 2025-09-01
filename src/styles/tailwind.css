@@ -1,64 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Core Colors */
-    --color-primary: #0C3B2E; /* jaguar-green */
-    --color-primary-foreground: #FFFFFF; /* white */
-    --color-secondary: #1A5A47; /* lighter-jaguar-green */
-    --color-secondary-foreground: #FFFFFF; /* white */
-    --color-accent: #C9A441; /* gold */
-    --color-accent-foreground: #1A1A1A; /* near-black */
+    /* Dark Theme Core Colors */
+    --color-background: #0a0a0a; /* bg */
+    --color-foreground: #e5e5e5; /* fg */
+    --color-muted: #9ca3af; /* muted */
+    --color-muted-foreground: #9ca3af; /* muted */
+    --color-accent: #00b140; /* accentRJ */
+    --color-accent-foreground: #0a0a0a; /* bg for contrast */
     
-    /* Background Colors */
-    --color-background: #FAFAFA; /* warm-white */
-    --color-foreground: #1A1A1A; /* near-black */
-    --color-surface: #FFFFFF; /* pure-white */
-    --color-card: #FFFFFF; /* pure-white */
-    --color-card-foreground: #1A1A1A; /* near-black */
-    --color-popover: #FFFFFF; /* pure-white */
-    --color-popover-foreground: #1A1A1A; /* near-black */
+    /* Primary colors using accentRJ */
+    --color-primary: #00b140; /* accentRJ */
+    --color-primary-foreground: #0a0a0a; /* bg for contrast */
+    --color-secondary: #1f2937; /* darker variant */
+    --color-secondary-foreground: #e5e5e5; /* fg */
     
-    /* Text Colors */
-    --color-muted: #666666; /* medium-gray */
-    --color-muted-foreground: #666666; /* medium-gray */
+    /* Surface and card colors */
+    --color-surface: #111111; /* slightly lighter than bg */
+    --color-card: #111111; /* slightly lighter than bg */
+    --color-card-foreground: #e5e5e5; /* fg */
+    --color-popover: #111111; /* slightly lighter than bg */
+    --color-popover-foreground: #e5e5e5; /* fg */
     
     /* State Colors */
-    --color-success: #2D7A2D; /* forest-green */
-    --color-success-foreground: #FFFFFF; /* white */
-    --color-warning: #B8860B; /* dark-goldenrod */
-    --color-warning-foreground: #FFFFFF; /* white */
-    --color-error: #8B2635; /* deep-red */
-    --color-error-foreground: #FFFFFF; /* white */
-    --color-destructive: #8B2635; /* deep-red */
-    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-success: #00b140; /* accentRJ */
+    --color-success-foreground: #0a0a0a; /* bg for contrast */
+    --color-warning: #f59e0b; /* warning yellow */
+    --color-warning-foreground: #0a0a0a; /* bg for contrast */
+    --color-error: #ef4444; /* error red */
+    --color-error-foreground: #e5e5e5; /* fg */
+    --color-destructive: #ef4444; /* error red */
+    --color-destructive-foreground: #e5e5e5; /* fg */
     
     /* UI Elements */
-    --color-border: rgba(12, 59, 46, 0.1); /* jaguar-green-10 */
-    --color-input: #FFFFFF; /* pure-white */
-    --color-ring: #0C3B2E; /* jaguar-green */
+    --color-border: rgba(229, 229, 229, 0.2); /* fg with opacity */
+    --color-input: #1f2937; /* darker input background */
+    --color-ring: #00b140; /* accentRJ for focus rings */
     
-    /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(12, 59, 46, 0.05);
-    --shadow-md: 0 2px 8px rgba(12, 59, 46, 0.1);
-    --shadow-lg: 0 4px 16px rgba(12, 59, 46, 0.15);
-    --shadow-xl: 0 8px 32px rgba(12, 59, 46, 0.2);
+    /* Shadows for dark theme */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.6);
     
     /* Border Radius */
-    --radius: 8px;
+    --radius: 12px;
   }
   
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
   
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -66,7 +69,25 @@
   }
   
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  /* Focus-visible rings */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+  
+  /* Section max-width and generous whitespace */
+  .section-container {
+    @apply max-w-section mx-auto px-6 py-12;
+  }
+  
+  .section-spacing {
+    @apply py-16 px-6;
+  }
+  
+  .generous-whitespace {
+    @apply space-y-8;
   }
 }
 
@@ -89,5 +110,61 @@
   
   .corporate-hover-opacity {
     @apply corporate-transition hover:opacity-80;
+  }
+  
+  /* Global section styles */
+  .page-section {
+    @apply max-w-section mx-auto px-6 py-16;
+  }
+  
+  .content-wrapper {
+    @apply max-w-section mx-auto px-6;
+  }
+  
+  /* Generous whitespace utilities */
+  .space-generous > * + * {
+    @apply mt-8;
+  }
+  
+  .space-generous-lg > * + * {
+    @apply mt-12;
+  }
+  
+  /* Dark theme specific button styles */
+  .btn-primary {
+    @apply bg-accentRJ text-bg font-medium px-6 py-3 rounded-md hover:bg-opacity-90 corporate-transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accentRJ focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium px-6 py-3 rounded-md hover:bg-opacity-90 corporate-transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Focus utilities */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+  
+  /* Spacing utilities for the custom scale */
+  .space-y-generous > * + * {
+    margin-top: 2rem;
+  }
+  
+  .space-y-section > * + * {
+    margin-top: 4rem;
   }
 }
