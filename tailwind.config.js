@@ -7,6 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Core dark theme colors
+        bg: '#0a0a0a',
+        fg: '#e5e5e5',
+        muted: '#9ca3af',
+        accentRJ: '#00b140',
+        
+        // Existing color system (preserved for compatibility)
         border: 'var(--color-border)', /* jaguar-green-10 */
         input: 'var(--color-input)', /* pure-white */
         ring: 'var(--color-ring)', /* jaguar-green */
@@ -56,7 +63,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        mono: ['Roboto Mono', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
@@ -71,9 +78,27 @@ export default {
         '6xl': ['3.75rem', { lineHeight: '1' }],
       },
       borderRadius: {
+        xs: '6px',
+        md: '12px',
+        xl: '20px',
+        // Keep existing for compatibility
         lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      spacing: {
+        '1': '4px',
+        '2': '8px',
+        '3': '12px',
+        '4': '16px',
+        '6': '24px',
+        '8': '32px',
+        // Keep existing spacing
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
+      maxWidth: {
+        'section': '1200px',
       },
       boxShadow: {
         'corporate': 'var(--shadow-md)',
@@ -106,11 +131,6 @@ export default {
       },
       transitionTimingFunction: {
         'corporate': 'cubic-bezier(0.4, 0, 0.2, 1)',
-      },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
       },
       zIndex: {
         '60': '60',
