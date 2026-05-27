@@ -3,208 +3,105 @@ import Layout from '../../components/Layout';
 import Section from '../../components/Section';
 import Icon from '../../components/AppIcon';
 
+const sections = [
+  {
+    title: 'Website data',
+    icon: 'Globe',
+    items: [
+      'Basic technical data may be processed when you visit this website, such as browser, device, and request metadata.',
+      'We keep the public website intentionally minimal and do not use it to collect sensitive personal information.'
+    ]
+  },
+  {
+    title: 'Google OAuth and Workspace data',
+    icon: 'KeyRound',
+    items: [
+      'RJDG uses Google OAuth to connect authorized Gmail, Drive, Calendar, Docs, Sheets, and related Workspace accounts for internal operational workflows.',
+      'OAuth access is used only for the account owner’s requested workflows, such as mail triage, drafts, document retrieval, scheduling, reporting, and operational automation.',
+      'Google user data is not sold, rented, or shared for advertising.'
+    ]
+  },
+  {
+    title: 'Limited use',
+    icon: 'ShieldCheck',
+    items: [
+      'Use of Google user data is limited to providing or improving user-facing RJDG workflow functionality.',
+      'Data is not used to train general-purpose AI models outside the controlled tools selected for the workflow.',
+      'Human approval is required for sensitive outbound actions such as sending email or making material account changes.'
+    ]
+  },
+  {
+    title: 'Security and retention',
+    icon: 'Lock',
+    items: [
+      'Access tokens and operational credentials are stored in controlled local/profile-specific environments where possible.',
+      'Operational records are retained only as needed for continuity, auditability, legal obligations, and the requested workflow.',
+      'Access can be revoked through the relevant Google Account security settings or by contacting RJDG.'
+    ]
+  }
+];
+
 const PrivacyPage = () => {
-  const lastUpdated = "December 2024";
-
-  const privacySections = [
-    {
-      title: "Information We Collect",
-      icon: "Database",
-      content: [
-        "Personal identification information (Name, email address, phone number)",
-        "Professional information (Company, job title, business requirements)",
-        "Technical information (IP address, browser type, device information)",
-        "Usage data (How you interact with our website and services)",
-        "Communication records (Emails, calls, meeting notes)"
-      ]
-    },
-    {
-      title: "How We Use Your Information",
-      icon: "Settings", 
-      content: [
-        "Provide and improve our corporate services",
-        "Communicate with you about projects and services",
-        "Send you relevant business updates and newsletters",
-        "Analyze website usage to enhance user experience",
-        "Comply with legal obligations and protect our rights"
-      ]
-    },
-    {
-      title: "Information Sharing",
-      icon: "Share2",
-      content: [
-        "We do not sell, trade, or rent your personal information",
-        "Information may be shared with trusted service providers",
-        "Data may be disclosed when required by law",
-        "Business transfers may include customer information",
-        "Anonymous, aggregated data may be shared for research"
-      ]
-    },
-    {
-      title: "Data Security",
-      icon: "Shield",
-      content: [
-        "Industry-standard encryption for data transmission",
-        "Secure servers with regular security audits",
-        "Access controls and authentication protocols",
-        "Regular backups with encrypted storage",
-        "Employee training on data protection practices"
-      ]
-    },
-    {
-      title: "Your Rights",
-      icon: "User",
-      content: [
-        "Access your personal information",
-        "Request correction of inaccurate data",
-        "Request deletion of your personal information",
-        "Object to processing of your personal information",
-        "Request data portability"
-      ]
-    },
-    {
-      title: "Cookies and Tracking",
-      icon: "Cookie",
-      content: [
-        "Essential cookies for website functionality",
-        "Analytics cookies to understand usage patterns",
-        "Marketing cookies for relevant content",
-        "Third-party cookies from integrated services",
-        "Cookie preferences can be managed in your browser"
-      ]
-    }
-  ];
-
   return (
     <Layout
-      title="Privacy Policy - RJ Dev Group"
-      description="Learn how RJ Dev Group collects, uses, and protects your personal information. Our commitment to privacy and data security."
-      keywords="privacy policy, data protection, personal information, cookies, GDPR, data security"
+      title="Privacy Policy - RJ Development Group"
+      description="RJ Development Group privacy policy, including Google OAuth and Workspace data use for internal operational workflows."
+      keywords="RJ Development Group privacy, Google OAuth, Workspace data, Gmail data, Drive data"
     >
-      {/* Hero Section */}
-      <Section 
-        id="hero"
-        className="relative overflow-hidden"
-        backgroundColor="bg-gradient-to-r from-primary/95 to-primary/85"
-        padding="pt-32 pb-16"
-      >
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-          style={{
-            backgroundImage: `url('/assets/images/Hero-banner-RJDevGroup2-1756860254770.png')`
-          }}
-        />
-        <div className="relative z-10">
-          <div className="text-center text-primary-foreground">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-foreground/10 rounded-full mb-6">
-              <Icon name="Shield" size={40} className="text-accent" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Privacy <span className="text-accent">Policy</span>
-            </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
-              Your privacy is important to us. This policy explains how we collect, use, and protect your information.
-            </p>
-            <p className="text-sm text-primary-foreground/70 mt-4">
-              Last updated: {lastUpdated}
-            </p>
-          </div>
+      <Section padding="pt-32 pb-16" backgroundColor="bg-gradient-to-br from-primary to-slate-900">
+        <div className="max-w-4xl text-primary-foreground">
+          <p className="font-mono text-accent mb-4">Last updated: May 2026</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Privacy Policy</h1>
+          <p className="text-xl text-primary-foreground/85">
+            This page explains how RJ Development Group handles website data and Google OAuth-connected Workspace data.
+          </p>
         </div>
       </Section>
 
-      {/* Introduction */}
-      <Section id="introduction" padding="py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-surface rounded-2xl p-8 corporate-shadow-lg mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-6">
-              Our Commitment to Privacy
-            </h2>
-            <div className="prose prose-lg text-muted-foreground">
-              <p className="mb-4">
-                At RaptorJesus Development Group Ltd., we are committed to protecting your privacy and ensuring 
-                the security of your personal information. This Privacy Policy explains how we collect, use, 
-                disclose, and safeguard your information when you use our website and services.
-              </p>
-              <p className="mb-4">
-                We understand that your privacy is important, and we have implemented comprehensive measures 
-                to protect your data while providing you with exceptional corporate services across web 
-                development, real estate, AI/ML, and strategic advisory sectors.
-              </p>
-              <p>
-                By using our services, you agree to the collection and use of information in accordance 
-                with this Privacy Policy. We will not use or share your information except as described herein.
-              </p>
-            </div>
-          </div>
+      <Section padding="py-16">
+        <div className="max-w-4xl mx-auto bg-surface rounded-2xl p-8 corporate-shadow-lg">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Scope</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            RJ Development Group operates software, web, AI-assisted, and administrative workflows for internal and venture-support purposes. This policy covers the public website and OAuth-connected Google Workspace workflows operated by RJDG.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Contact for privacy, data access, deletion, or OAuth access questions: <a className="text-primary underline" href="mailto:raptorjesus@rjdevgroup.com">raptorjesus@rjdevgroup.com</a>.
+          </p>
         </div>
       </Section>
 
-      {/* Privacy Sections */}
-      <Section id="privacy-sections" backgroundColor="bg-surface" padding="py-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {privacySections?.map((section, index) => (
-              <div key={index} className="bg-background rounded-xl p-8 corporate-shadow">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                    <Icon name={section?.icon} size={24} className="text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">{section?.title}</h3>
+      <Section padding="py-16" backgroundColor="bg-surface">
+        <div className="grid lg:grid-cols-2 gap-6">
+          {sections.map((section) => (
+            <div key={section.title} className="bg-background rounded-2xl p-8 corporate-shadow">
+              <div className="flex items-center mb-5">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mr-4">
+                  <Icon name={section.icon} size={24} className="text-primary" />
                 </div>
-                <ul className="space-y-3">
-                  {section?.content?.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start">
-                      <Icon name="Check" size={16} className="text-primary mt-1 mr-3 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <h2 className="text-2xl font-bold text-foreground">{section.title}</h2>
               </div>
-            ))}
-          </div>
+              <ul className="space-y-3">
+                {section.items.map((item) => (
+                  <li key={item} className="flex items-start">
+                    <Icon name="Check" size={16} className="text-primary mt-1 mr-3 flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </Section>
 
-      {/* Contact Section */}
-      <Section id="contact" padding="py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
-              <Icon name="MessageSquare" size={32} className="text-primary" />
-            </div>
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Questions About Privacy?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-              If you have any questions about this Privacy Policy, our data practices, or would like to 
-              exercise your privacy rights, please don't hesitate to contact us.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a 
-                href="mailto:privacy@rjdevgroup.com"
-                className="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-medium transition-colors duration-200"
-              >
-                <Icon name="Mail" size={18} className="mr-2" />
-                privacy@rjdevgroup.com
-              </a>
-              <a 
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 border border-border hover:bg-surface text-foreground rounded-lg font-medium transition-colors duration-200"
-              >
-                <Icon name="MessageCircle" size={18} className="mr-2" />
-                Contact Form
-              </a>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Footer Note */}
-      <Section id="footer-note" backgroundColor="bg-surface" padding="py-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm text-muted-foreground">
-            This Privacy Policy is effective as of {lastUpdated} and will remain in effect except with respect to 
-            any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
+      <Section padding="py-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Revoking access</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            You can revoke Google OAuth access at any time from your Google Account security settings. RJDG will also remove locally held access for a connected workflow on request.
+          </p>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Changes</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            This policy may be updated when services, workflows, or legal requirements change. The current version is published on this page.
           </p>
         </div>
       </Section>

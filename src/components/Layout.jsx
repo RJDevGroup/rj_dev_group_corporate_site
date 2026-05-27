@@ -4,9 +4,9 @@ import StickyNavHeader from './ui/StickyNavHeader';
 import FooterSection from '../pages/corporate-homepage/components/FooterSection';
 
 const Layout = ({ children, title, description, keywords }) => {
-  const defaultTitle = "RJ Dev Group - Corporate Solutions";
-  const defaultDescription = "Leading corporate solutions across Web Development, Real Estate, AI/ML, and Strategic Advisory services.";
-  const defaultKeywords = "web development, real estate, AI, machine learning, advisory services, corporate solutions";
+  const defaultTitle = 'RJ Development Group - Digital Operations & Holding Support';
+  const defaultDescription = 'RJ Development Group supports software, web operations, AI-assisted workflows, and practical holding administration.';
+  const defaultKeywords = 'RJ Development Group, web operations, AI workflows, automation, holding support';
 
   return (
     <>
@@ -23,9 +23,7 @@ const Layout = ({ children, title, description, keywords }) => {
       </Helmet>
       <div className="min-h-screen bg-background">
         <StickyNavHeader />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <FooterSection />
       </div>
     </>
