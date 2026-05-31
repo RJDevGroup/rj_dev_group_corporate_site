@@ -60,12 +60,14 @@ const StickyNavHeader = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <button onClick={() => handleNavigation('/')} className="flex items-center gap-3">
-              <img
-                src="/assets/images/logo-rjdg.png"
-                alt=""
-                className="w-8 h-8"
-                aria-hidden="true"
-              />
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#00b140]/20">
+                <img
+                  src="/assets/images/avatar-rjdg.png"
+                  alt=""
+                  className="w-full h-full object-cover"
+                  aria-hidden="true"
+                />
+              </div>
               <span className="text-white font-mono font-semibold text-lg hidden sm:block">
                 RJ Dev Group
               </span>
