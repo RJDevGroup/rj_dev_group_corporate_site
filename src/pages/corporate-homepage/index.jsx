@@ -24,14 +24,14 @@ const pillars = [
     id: "financial-consultancy",
     title: "Financial Consultancy",
     description:
-      "Cross-border financial structuring, cash-flow modeling, and investment analysis. Expertise in Dutch BV frameworks and international banking relationships.",
+      "Financial planning, documentation, reporting, and advisory coordination. Supporting structured cross-border activity with clear records and compliance-first processes.",
     iconName: "Landmark",
   },
   {
     id: "cross-border",
     title: "Cross-Border Operations",
     description:
-      "Multi-jurisdiction entity management spanning the Netherlands, Kenya, and global markets. Compliance, banking, and operational coordination across borders.",
+      "Cross-border entity management and operational coordination. Compliance monitoring, documentation, and advisory support for multi-jurisdiction structures.",
     iconName: "Globe2",
   },
   {

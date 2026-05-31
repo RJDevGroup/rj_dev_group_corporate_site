@@ -17,17 +17,19 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0a0a0a]/60 via-transparent to-[#0a0a0a]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-        {/* Logo mark */}
-        <div className="mb-10">
-          <img
-            src="/assets/images/logo-rjdg.png"
-            alt="RJ Dev Group"
-            className="w-20 h-20 mx-auto opacity-90"
-          />
+        {/* Logo mark — circular emblem */}
+        <div className="mb-10 flex justify-center">
+          <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#00b140]/30 shadow-[0_0_40px_rgba(0,176,64,0.15)]">
+            <img
+              src="/assets/images/avatar-rjdg.png"
+              alt="RJ Development Group"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-mono tracking-tight">
-          RJ Dev Group
+          RJ Development Group
         </h1>
 
         <h2 className="text-lg sm:text-xl lg:text-2xl text-[#00b140] mb-6 font-mono font-medium">
@@ -35,8 +37,8 @@ const HeroSection = () => {
         </h2>
 
         <p className="text-base sm:text-lg text-[#9ca3af] mb-12 max-w-2xl mx-auto leading-relaxed font-mono">
-          System architecture, full-stack engineering, cross-border financial operations,
-          and AI-assisted infrastructure — quietly operating across jurisdictions.
+          Independent development, consultancy, and digital infrastructure
+          for international projects.
         </p>
 
         {/* Scroll indicator */}
