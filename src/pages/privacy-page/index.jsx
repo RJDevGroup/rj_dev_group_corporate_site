@@ -121,7 +121,7 @@ const PrivacyPage = () => {
             </h2>
             <div className="prose prose-lg text-muted-foreground">
               <p className="mb-4">
-                At RaptorJesus Development Group Ltd., we are committed to protecting your privacy and ensuring 
+                At RJ Dev Group, we are committed to protecting your privacy and ensuring 
                 the security of your personal information. This Privacy Policy explains how we collect, use, 
                 disclose, and safeguard your information when you use our website and services.
               </p>

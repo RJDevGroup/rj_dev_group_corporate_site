@@ -1,21 +1,58 @@
 :root {
-  --bg: 255 255 255;
-  --fg: 17 24 39;
+  /* Dark operator theme — RJ Dev Group */
+  --bg: 10 10 10;
+  --fg: 229 229 229;
   --muted: 107 114 128;
-  --brand: 99 102 241;
+  --brand: 0 176 64;
   --brand-contrast: 255 255 255;
-  --surface: 249 250 251;
-  --ring: 99 102 241;
-  --border: 229 231 235;
+  --surface: 17 17 17;
+  --ring: 0 176 64;
+  --border: 26 26 26;
+
+  /* Jaguar-green primary */
+  --color-primary: #006039;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #004f2f;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #00b140;
+  --color-accent-foreground: #0a0a0a;
+  --color-muted: #6b7280;
+  --color-muted-foreground: #9ca3af;
+  --color-surface: #111111;
+  --color-background: #0a0a0a;
+  --color-foreground: #e5e5e5;
+  --color-border: #1a1a1a;
+  --color-input: #1a1a1a;
+  --color-ring: #006039;
+  --color-card: #111111;
+  --color-card-foreground: #e5e5e5;
+  --color-popover: #111111;
+  --color-popover-foreground: #e5e5e5;
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #166534;
+  --color-success-foreground: #ffffff;
+  --color-warning: #854d0e;
+  --color-warning-foreground: #ffffff;
+  --color-error: #7f1d1d;
+  --color-error-foreground: #ffffff;
+
+  /* Shadows for dark theme */
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.6);
+
+  --radius: 0.5rem;
 }
 
+/* No .dark class needed — always dark */
 .dark {
-  --bg: 3 7 18;
-  --fg: 241 245 249;
-  --muted: 148 163 184;
-  --brand: 129 140 248;
-  --brand-contrast: 3 7 18;
-  --surface: 15 23 42;
-  --ring: 129 140 248;
-  --border: 51 65 85;
+  --bg: 10 10 10;
+  --fg: 229 229 229;
+  --muted: 107 114 128;
+  --brand: 0 176 64;
+  --brand-contrast: 255 255 255;
+  --surface: 17 17 17;
+  --ring: 0 176 64;
+  --border: 26 26 26;
 }

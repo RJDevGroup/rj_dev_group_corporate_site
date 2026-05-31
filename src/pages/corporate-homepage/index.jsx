@@ -1,82 +1,72 @@
 import React from 'react';
 import StickyNavHeader from '../../components/ui/StickyNavHeader';
 import HeroSection from './components/HeroSection';
-import ServiceSection from './components/ServiceSection';
+import PillarSection from './components/PillarSection';
 import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 
-const CorporateHomepage = () => {
-  const servicesData = [
-    {
-      id: "web-development",
-      title: "Web Development",
-      description: "Transform your digital presence with cutting-edge web applications, responsive websites, and scalable e-commerce platforms. Our expert development team leverages the latest technologies including React, Node.js, and cloud infrastructure to deliver high-performance solutions that drive business growth and enhance user engagement.",
-      buttonText: "Explore Web Solutions",
-      buttonId: "btnWeb",
-      trackingId: "service-web-development",
-      iconName: "Code",
-      isReversed: false,
-      backgroundColor: "bg-background"
-    },
-    {
-      id: "real-estate",
-      title: "Real Estate Development",
-      description: "Unlock property investment opportunities with our comprehensive real estate development services. From market analysis and site selection to project management and construction oversight, we provide end-to-end solutions for residential, commercial, and mixed-use developments that maximize returns and create lasting value.",
-      buttonText: "View Real Estate Services",
-      buttonId: "btnRE",
-      trackingId: "service-real-estate",
-      iconName: "Building",
-      isReversed: true,
-      backgroundColor: "bg-surface"
-    },
-    {
-      id: "ai-ml",
-      title: "Applied AI & Machine Learning",
-      description: "Harness the power of artificial intelligence to revolutionize your business operations. Our AI/ML solutions include predictive analytics, natural language processing, computer vision, and automated decision-making systems that optimize efficiency, reduce costs, and unlock new revenue streams through intelligent automation.",
-      buttonText: "Discover AI Solutions",
-      buttonId: "btnAI",
-      trackingId: "service-ai-ml",
-      iconName: "Brain",
-      isReversed: false,
-      backgroundColor: "bg-background"
-    },
-    {
-      id: "advisory",
-      title: "Management & Advisory",
-      description: "Navigate complex business challenges with strategic guidance from our experienced advisory team. We provide management consulting, financial planning, operational optimization, and growth strategy services that help organizations achieve sustainable success and competitive advantage in today's dynamic marketplace.",
-      buttonText: "Get Strategic Guidance",
-      buttonId: "btnAdvisory",
-      trackingId: "service-advisory",
-      iconName: "Users",
-      isReversed: true,
-      backgroundColor: "bg-surface"
-    }
-  ];
+const pillars = [
+  {
+    id: "system-architecture",
+    title: "System Architecture & Design",
+    description:
+      "Infrastructure design, integration architecture, and technical strategy for complex multi-system environments. We architect scalable foundations that support cross-jurisdiction operations.",
+    iconName: "Network",
+  },
+  {
+    id: "web-development",
+    title: "Full-Stack Web Development",
+    description:
+      "Custom React, Vue, and Node.js applications with a focus on performance, maintainability, and operator-grade reliability. From internal tooling to public-facing platforms.",
+    iconName: "Code2",
+  },
+  {
+    id: "financial-consultancy",
+    title: "Financial Consultancy",
+    description:
+      "Cross-border financial structuring, cash-flow modeling, and investment analysis. Expertise in Dutch BV frameworks and international banking relationships.",
+    iconName: "Landmark",
+  },
+  {
+    id: "cross-border",
+    title: "Cross-Border Operations",
+    description:
+      "Multi-jurisdiction entity management spanning the Netherlands, Kenya, and global markets. Compliance, banking, and operational coordination across borders.",
+    iconName: "Globe2",
+  },
+  {
+    id: "real-estate",
+    title: "Real Estate & Land Development",
+    description:
+      "Residential and commercial project development — from site analysis and acquisition through construction oversight. Active coastal development projects in Kenya.",
+    iconName: "Building2",
+  },
+  {
+    id: "ai-operations",
+    title: "AI-Assisted Digital Operations",
+    description:
+      "Agent-based automation, intelligent document processing, and AI-powered workflow optimization. Operator-grade digital infrastructure for lean, high-efficiency teams.",
+    iconName: "Cpu",
+  },
+];
 
+const CorporateHomepage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Sticky Navigation Header */}
+    <div className="min-h-screen bg-[#0a0a0a]">
       <StickyNavHeader />
-      {/* Hero Section */}
       <HeroSection />
-      {/* Service Sections */}
-      {servicesData?.map((service) => (
-        <ServiceSection
-          key={service?.id}
-          id={service?.id}
-          title={service?.title}
-          description={service?.description}
-          buttonText={service?.buttonText}
-          buttonId={service?.buttonId}
-          trackingId={service?.trackingId}
-          iconName={service?.iconName}
-          isReversed={service?.isReversed}
-          backgroundColor={service?.backgroundColor}
+      {/* Pillar Sections */}
+      {pillars.map((pillar, i) => (
+        <PillarSection
+          key={pillar.id}
+          id={pillar.id}
+          title={pillar.title}
+          description={pillar.description}
+          iconName={pillar.iconName}
+          isReversed={i % 2 === 1}
         />
       ))}
-      {/* Contact Section */}
       <ContactSection />
-      {/* Footer Section */}
       <FooterSection />
     </div>
   );
