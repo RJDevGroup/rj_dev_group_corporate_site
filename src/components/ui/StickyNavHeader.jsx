@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
-import Button from './Button';
 
 const StickyNavHeader = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -10,73 +9,122 @@ const StickyNavHeader = () => {
   const location = useLocation();
 
   const menuItems = [
-    { label: 'Home', href: '/', icon: 'Home' },
-    { label: 'Services', href: '/services', icon: 'Code' },
-    { label: 'About', href: '/about', icon: 'Users' },
-    { label: 'Contact', href: '/contact', icon: 'Mail' },
-    { label: 'Privacy', href: '/privacy', icon: 'Shield' },
-    { label: 'Terms', href: '/terms', icon: 'FileText' }
+    { label: 'Home', href: '/' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Privacy', href: '/privacy' },
   ];
 
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 40);
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavigation = (href) => {
-    navigate(href);
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.querySelector(href);
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const el = document.querySelector(href);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate(href);
+    }
     setMobileMenuOpen(false);
   };
 
-  const isActiveRoute = (href) => href === '/' ? location.pathname === '/' : location.pathname === href;
+  const isActive = (href) => location.pathname === href;
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? 'bg-surface/95 backdrop-blur-sm corporate-shadow' : 'bg-surface/90 backdrop-blur-sm'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <button onClick={() => handleNavigation('/')} className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg font-mono">RJ</span>
-              </div>
-              <div className="hidden sm:block text-left">
-                <h1 className="text-xl font-bold text-foreground">RJ Development Group</h1>
-                <p className="text-sm text-muted-foreground">Digital operations</p>
-              </div>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isSticky ? 'bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-[#1a1a1a]' : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <button onClick={() => handleNavigation('/')} className="flex items-center gap-3">
+              <img
+                src="/assets/images/logo-rjdg.png"
+                alt=""
+                className="w-8 h-8"
+                aria-hidden="true"
+              />
+              <span className="text-white font-mono font-semibold text-lg hidden sm:block">
+                RJ Dev Group
+              </span>
             </button>
 
-            <nav className="hidden lg:flex items-center space-x-6">
+            {/* Desktop nav */}
+            <nav className="hidden md:flex items-center gap-8">
               {menuItems.map((item) => (
-                <button key={item.href} onClick={() => handleNavigation(item.href)} className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActiveRoute(item.href) ? 'text-primary bg-primary/5' : 'text-foreground hover:text-primary'}`}>
-                  <Icon name={item.icon} size={16} />
-                  <span>{item.label}</span>
+                <button
+                  key={item.href}
+                  onClick={() => handleNavigation(item.href)}
+                  className={`text-sm font-mono transition-colors ${
+                    isActive(item.href)
+                      ? 'text-[#00b140]'
+                      : 'text-[#9ca3af] hover:text-white'
+                  }`}
+                >
+                  {item.label}
                 </button>
               ))}
             </nav>
 
-            <div className="hidden lg:block">
-              <Button variant="default" size="sm" onClick={() => handleNavigation('/contact')} iconName="ArrowRight" iconPosition="right" iconSize={16}>
-                Contact
-              </Button>
-            </div>
-
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/5" aria-label="Toggle mobile menu">
-              <Icon name={mobileMenuOpen ? 'X' : 'Menu'} size={24} />
+            {/* Mobile menu toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-[#9ca3af] hover:text-white"
+            >
+              <Icon name={mobileMenuOpen ? 'X' : 'Menu'} size={22} />
             </button>
           </div>
         </div>
       </header>
 
-      <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="absolute inset-0 bg-foreground/20 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-        <div className={`absolute top-20 left-0 right-0 bg-surface corporate-shadow-lg border-t border-border transition-transform duration-300 ${mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-          <nav className="px-4 py-6 space-y-2">
+      {/* Mobile menu */}
+      <div
+        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
+          mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <div
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        <div
+          className={`absolute top-16 left-0 right-0 bg-[#111111] border-b border-[#1a1a1a] transition-transform duration-300 ${
+            mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+          }`}
+        >
+          <nav className="px-6 py-6 space-y-1">
             {menuItems.map((item) => (
-              <button key={item.href} onClick={() => handleNavigation(item.href)} className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left ${isActiveRoute(item.href) ? 'text-primary bg-primary/5 border border-primary/20' : 'text-foreground hover:text-primary hover:bg-primary/5'}`}>
-                <Icon name={item.icon} size={20} />
-                <span className="font-medium">{item.label}</span>
+              <button
+                key={item.href}
+                onClick={() => handleNavigation(item.href)}
+                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-mono transition-colors ${
+                  isActive(item.href)
+                    ? 'text-[#00b140] bg-[#006039]/10'
+                    : 'text-[#9ca3af] hover:text-white hover:bg-[#1a1a1a]'
+                }`}
+              >
+                {item.label}
               </button>
             ))}
           </nav>

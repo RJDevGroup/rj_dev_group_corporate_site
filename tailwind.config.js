@@ -62,8 +62,11 @@ export default {
         surface: 'var(--color-surface)', /* pure-white */
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Roboto Mono', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: [
+          'Geist Mono', 'IBM Plex Mono', 'JetBrains Mono',
+          'Space Mono', 'DM Mono', 'Roboto Mono', 'monospace',
+        ],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

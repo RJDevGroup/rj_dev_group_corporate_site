@@ -1,14 +1,10 @@
 import React from "react";
-import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
+import { BrowserRouter, Routes as RouterRoutes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 import ErrorBoundary from "components/ErrorBoundary";
-import NotFound from "pages/NotFound";
 import CorporateHomepage from './pages/corporate-homepage';
-import ServicesOverviewPage from './pages/services-overview-page';
-import AboutUsPage from './pages/about-us-page';
 import ContactPage from './pages/contact-page';
 import PrivacyPage from './pages/privacy-page';
-import LegalPage from './pages/legal-page';
 
 const Routes = () => {
   return (
@@ -17,21 +13,13 @@ const Routes = () => {
         <ScrollToTop />
         <RouterRoutes>
           <Route path="/" element={<CorporateHomepage />} />
-          <Route path="/corporate-homepage" element={<CorporateHomepage />} />
-          <Route path="/services" element={<ServicesOverviewPage />} />
-          <Route path="/services-overview-page" element={<ServicesOverviewPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/about-us-page" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/contact-page" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/privacy-page" element={<PrivacyPage />} />
-          <Route path="/terms" element={<LegalPage />} />
-          <Route path="/legal" element={<LegalPage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </RouterRoutes>
       </ErrorBoundary>
     </BrowserRouter>
   );
 };
+
 export default Routes;
