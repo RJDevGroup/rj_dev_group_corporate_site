@@ -5,6 +5,7 @@ import ErrorBoundary from "components/ErrorBoundary";
 import CorporateHomepage from './pages/corporate-homepage';
 import ContactPage from './pages/contact-page';
 import PrivacyPage from './pages/privacy-page';
+import TermsPage from './pages/terms-page';
 
 const Routes = () => {
   return (
@@ -15,6 +16,7 @@ const Routes = () => {
           <Route path="/" element={<CorporateHomepage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </RouterRoutes>
       </ErrorBoundary>

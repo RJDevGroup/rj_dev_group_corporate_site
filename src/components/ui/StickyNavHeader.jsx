@@ -12,6 +12,7 @@ const StickyNavHeader = () => {
     { label: 'Home', href: '/' },
     { label: 'Contact', href: '/contact' },
     { label: 'Privacy', href: '/privacy' },
+    { label: 'Terms', href: '/terms' },
   ];
 
   useEffect(() => {
