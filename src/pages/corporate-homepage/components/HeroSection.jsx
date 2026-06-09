@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         {/* Logo mark — circular emblem */}
         <div className="mb-10 flex justify-center">
-          <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-[#00b140]/30 shadow-[0_0_60px_rgba(0,176,64,0.2)]">
+          <div className="w-64 h-64 rounded-full overflow-hidden border-2 border-[#00b140]/30 shadow-[0_0_80px_rgba(0,176,64,0.25)]">
             <img
               src="/assets/images/avatar-rjdg.png"
               alt="RJ Development Group"
